@@ -2,7 +2,8 @@ import React from 'react'
 
 export const FormTable = () => {
   return (
-    <div>FormTable</div>
-  
+    <>
+        <h1>FormTable</h1>
+    </>
     )
 }
