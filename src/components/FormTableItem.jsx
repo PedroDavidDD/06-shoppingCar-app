@@ -1,4 +1,3 @@
-import React from 'react'
 
 export const FormTableItem = ({ item, onDeleteTCItem }) => {
   return (

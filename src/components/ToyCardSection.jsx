@@ -1,7 +1,8 @@
-import React from 'react'
 import { ToyCardItem } from './'
 
 export const ToyCardSection = ({ data, setItem, item }) => {
+  
+  // console.log('Me repito en ToyCardSection');
 
   function handleAddToyCardItem( objItem ) {
     // console.log('Dato: ',objItem); 

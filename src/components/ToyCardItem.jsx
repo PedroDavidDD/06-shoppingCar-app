@@ -1,4 +1,3 @@
-import React from 'react'
 
 export const ToyCardItem = ({ id, image, name, species, gender, onToyCardItem, quantity = 1 }) => {
   return (

@@ -1,13 +1,18 @@
-import React from 'react'
+
 import { FormTableItem } from './';
 
 export const FormTable = ({ item, setItem }) => {
     // console.log('[-]',item);
-
+    // console.log('me repito en FormTable');
     function handleDeleteTCItem(id) {
         const temp = [...item];
         const newListItem = temp.filter((element)=> element.id != id );
         setItem(newListItem);
+    }
+    function handleDeleteAll() {
+        const temp = [...item];
+        if (temp.length === 0) return;
+        setItem([]);
     }
 
   return (
@@ -31,7 +36,7 @@ export const FormTable = ({ item, setItem }) => {
                 </tbody>
             </table>
         </div>
-        <button className='btn btn-danger' onClick={()=> setItem([]) }>Delete All</button>
+        <button className='btn btn-danger' onClick={ handleDeleteAll }>Delete All</button>
    
     </>
     )

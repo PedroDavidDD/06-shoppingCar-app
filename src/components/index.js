@@ -7,3 +7,4 @@ export * from './ToyCardItem';
 
 export * from './FormTable';
 export * from './FormTableItem';
+export * from './ContentProductTable';
