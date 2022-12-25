@@ -15,9 +15,7 @@ export const ToyCardSection = ({ data, setItem, item }) => {
       // console.log('aumento cantidad en el objeto alterando el "temp": ',repeatObjItem); 
       repeatObjItem[0].quantity = repeatObjItem[0].quantity + 1;
     }
-
     setItem( temp );
-
   }
 
   return (

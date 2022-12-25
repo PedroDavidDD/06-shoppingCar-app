@@ -1,8 +1,14 @@
 import React from 'react'
 import { FormTableItem } from './';
 
-export const FormTable = ({ item }) => {
+export const FormTable = ({ item, setItem }) => {
     // console.log('[-]',item);
+
+    function handleDeleteTCItem(id) {
+        const temp = [...item];
+        const newListItem = temp.filter((element)=> element.id != id );
+        setItem(newListItem);
+    }
 
   return (
     <>
@@ -17,13 +23,16 @@ export const FormTable = ({ item }) => {
                         <th scope="col">Species</th>
                         <th scope="col">Gender</th>
                         <th scope="col">quantity</th>
+                        <th scope="col">[Buttons]</th>
                     </tr>
                 </thead>
                 <tbody className='table-warning'>
-                    { <FormTableItem item={ item } /> }
+                    { <FormTableItem item={ item } onDeleteTCItem={ handleDeleteTCItem } /> }
                 </tbody>
             </table>
         </div>
+        <button className='btn btn-danger' onClick={()=> setItem([]) }>Delete All</button>
+   
     </>
     )
 }
