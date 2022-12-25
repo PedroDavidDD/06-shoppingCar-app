@@ -3,7 +3,6 @@ import { ToyCard } from './components'
 
 export const ShoppingCar = () => {
 
-
   return (
     <>
       <div className='container-lg'>

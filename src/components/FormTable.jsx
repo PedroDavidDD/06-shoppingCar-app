@@ -5,10 +5,20 @@ export const FormTable = ({ item, setItem }) => {
     // console.log('[-]',item);
     // console.log('me repito en FormTable');
     function handleDeleteTCItem(id) {
-        const temp = [...item];
-        const newListItem = temp.filter((element)=> element.id != id );
-        setItem(newListItem);
+        let temp = [...item];
+        const repeatObjItem = temp.filter( it => it.id === id);
+        // console.log(repeatObjItem);  
+        if (repeatObjItem[0].quantity == 1){
+            const newListItem = temp.filter((element)=> element.id != id );
+            setItem(newListItem);
+        }else{
+            if(repeatObjItem.length != 0){
+                repeatObjItem[0].quantity = repeatObjItem[0].quantity - 1;
+                setItem(temp);
+            }
+        }   
     }
+
     function handleDeleteAll() {
         const temp = [...item];
         if (temp.length === 0) return;
@@ -36,6 +46,7 @@ export const FormTable = ({ item, setItem }) => {
                 </tbody>
             </table>
         </div>
+        
         <button className='btn btn-danger' onClick={ handleDeleteAll }>Delete All</button>
    
     </>
