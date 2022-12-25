@@ -1,26 +1,26 @@
 import React from 'react'
+import { FormTableItem } from './';
 
-export const FormTable = () => {
+export const FormTable = ({ item }) => {
+    // console.log('[-]',item);
+
   return (
     <>
-        <h1 className='bg-red-500'>FormTable</h1>
+        <h1 className='bg-red-500 text-slate-50 text-center text-3xl'>Tabla De Compras</h1>
         <div className="table-responsive">
             <table className="table table-hover">
                 <thead>
                     <tr className='table-dark'>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">#ID</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Species</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">quantity</th>
                     </tr>
                 </thead>
                 <tbody className='table-warning'>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
+                    { <FormTableItem item={ item } /> }
                 </tbody>
             </table>
         </div>
