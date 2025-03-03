@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { 
+  BotRick,
   ContentProductTable, 
 } from './components'
 import { useFetch } from './hooks/useFetch';
@@ -14,7 +15,7 @@ export const ShoppingCar = () => {
   
   return (
     <>
-      <div className='container-lg'>
+      <div className='container-lg pb-48'>
         <h1 className='bg-red-500 text-slate-50 text-center text-3xl'>Interdimensional Portal de Clones</h1>        
         {
           isLoading ? (<h2>Cargando...</h2>) : (
@@ -26,7 +27,7 @@ export const ShoppingCar = () => {
           )
         } 
 
-
+        <BotRick />
 
       </div>
     </>
