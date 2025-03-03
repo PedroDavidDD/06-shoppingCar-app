@@ -38,7 +38,7 @@ export const FormTable = ({ item, setItem }) => {
                         <th scope="col">Species</th>
                         <th scope="col">Gender</th>
                         <th scope="col">quantity</th>
-                        <th scope="col">[Buttons]</th>
+                        <th scope="col">[Actions]</th>
                     </tr>
                 </thead>
                 <tbody className='table-warning'>
