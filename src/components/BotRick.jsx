@@ -95,7 +95,7 @@ export const BotRick = () => {
         setImageIndex(4)
         setIsAnimating(false);
       }
-    }, frameRate);
+    }, FRAME_RATE);
 
     return () => clearInterval(animationInterval);
   }, [isAnimating, currentIndex]);
