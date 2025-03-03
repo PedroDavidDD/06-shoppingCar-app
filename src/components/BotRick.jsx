@@ -79,12 +79,10 @@ export const BotRick = () => {
   }, []);
 
   useEffect(() => {
-
     if (!isAnimating) return;
 
     const wordCount = rickisms[currentIndex].split(" ").length; // Contamos las palabras
     const animationDuration = Math.min(wordCount * FRAME_RATE, MAX_ANIMATION_DURATION); // Tiempo total basado en palabras (máximo 5s)
-    const frameRate = 200; // Cada frame dura 200ms
     const frameCount = Math.floor(animationDuration / frameRate); // Cuántos frames mostrar
 
     let frame = 0;
