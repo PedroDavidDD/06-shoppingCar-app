@@ -6,6 +6,7 @@
   bottom: 0;
   left: 0;
   background-color: transparent;
+  user-select: none;
 }
 
 .bot-rick {
