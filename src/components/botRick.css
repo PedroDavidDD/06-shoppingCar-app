@@ -1,37 +1,40 @@
-
 .container-bot-rick {
-    width: 100%;
-    height: auto;
-    position: fixed;
-    z-index: 10;
-    bottom: 0;
-    left: 0;
-    background-color: transparent;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
 }
 
 .bot-rick {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    
-    background-color: rgba(0, 0, 0, .4);
-    border-bottom: 5px solid rgb(255, 255, 255);
-    padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+
+  background-color: rgba(0, 0, 0, 0.4);
+  border-bottom: 5px solid rgb(255, 255, 255);
+  padding: 1rem;
 }
 
-.bot-rick h2{
-    background-color: transparent;
-    color: white;
+.bot-rick h2 {
+  background-color: transparent;
+  color: white;
 }
 
-.bot-rick-img{
-    width: 10rem;
-    height: 10rem;
+.bot-rick-img {
+  width: 10rem;
+  height: 10rem;
 }
-.bot-rick-img img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.bot-rick-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bot-rick-img,
+.bot-rick-img img {
+  background-color: transparent;
 }
