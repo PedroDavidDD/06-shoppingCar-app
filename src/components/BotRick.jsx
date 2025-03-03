@@ -6,7 +6,7 @@ export const BotRick = () => {
   const [imageIndex, setImageIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const INTERVAL_DURATION = 5000; // Tiempo base para el intervalo y la animación
+  const INTERVAL_DURATION = 8000; // Tiempo base para el intervalo y la animación
   const FRAME_RATE = 200; // Duración de cada frame
   const MAX_ANIMATION_DURATION = INTERVAL_DURATION;
 
