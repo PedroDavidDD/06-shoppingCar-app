@@ -6,6 +6,10 @@ export const BotRick = () => {
   const [imageIndex, setImageIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
+  const INTERVAL_DURATION = 5000; // Tiempo base para el intervalo y la animación
+  const FRAME_RATE = 200; // Duración de cada frame
+  const MAX_ANIMATION_DURATION = INTERVAL_DURATION;
+
   const images = [
     "/assets/img/speak/1.png",
     "/assets/img/speak/2.png",
@@ -69,7 +73,7 @@ export const BotRick = () => {
 
       setCurrentIndex((prev) => (prev + 1) % rickisms.length);
       setIsAnimating(true); // Activamos la animación cuando cambia el mensaje
-    }, 5000);
+    }, INTERVAL_DURATION);
 
     return () => clearInterval(interval);
   }, []);
@@ -79,7 +83,7 @@ export const BotRick = () => {
     if (!isAnimating) return;
 
     const wordCount = rickisms[currentIndex].split(" ").length; // Contamos las palabras
-    const animationDuration = Math.min(wordCount * 200, 5000); // Tiempo total basado en palabras (máximo 5s)
+    const animationDuration = Math.min(wordCount * FRAME_RATE, MAX_ANIMATION_DURATION); // Tiempo total basado en palabras (máximo 5s)
     const frameRate = 200; // Cada frame dura 200ms
     const frameCount = Math.floor(animationDuration / frameRate); // Cuántos frames mostrar
 
