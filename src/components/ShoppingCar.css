@@ -1,0 +1,12 @@
+.feature-section {
+    margin-top: 3rem;
+    padding: 1rem 1rem;
+    background-color: red;
+    border-left: 5px solid greenyellow;
+    border-radius: 15px;
+}
+
+.feature-section.container-clone-auction {
+    padding: 3rem 1rem;
+    background-color: rgb(0, 116, 44);
+}

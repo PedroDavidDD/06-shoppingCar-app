@@ -1,0 +1,113 @@
+.clone-auction {
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.clone-auction h2 {
+  color: white;
+  font-weight: bold;
+}
+
+.clone-auction span,
+.clone-auction h2 {
+  font-size: 2rem;
+}
+
+.clone-auction__content {
+  width: 100%;
+  height: auto;
+  border: 3px dashed #0f0;
+  border-radius: 15px;
+  padding: 1rem;
+  color: white;
+  font-weight: bold;
+}
+
+.clone-auction__content h3 {
+    font-size: 1.3rem;
+}
+
+.clone-auction__item {
+  margin-top: 1rem;
+}
+
+.clone-auction__content .clone-auction__img {
+  width: 100%;
+  height: auto;
+  background-color: red;
+  background-size: cover;
+  background-position: center;
+}
+
+.clone-auction__content .clone-auction__sale {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(90, 220, 190);
+  padding: 0.5rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.clone-auction__content .clone-auction__sale h4:nth-child(1) {
+  color: red;
+}
+
+.clone-auction__content .clone-auction__sale h4:nth-child(2) {
+  color: greenyellow;
+}
+
+.clone-auction,
+.clone-auction span,
+.clone-auction h2,
+.clone-auction__content .clone-auction__bidValue,
+.clone-auction__content .clone-auction__information,
+.clone-auction__content h3,
+.clone-auction__content,
+.clone-auction__content .clone-auction__sale h4:nth-child(1),
+.clone-auction__content .clone-auction__sale h4:nth-child(2),
+.clone-auction__content .clone-auction__sale h4:nth-child(1) span,
+.clone-auction__content .clone-auction__sale h4:nth-child(2) span {
+  background-color: transparent;
+}
+
+.clone-auction__content .clone-auction__bidValue {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  color: white;
+}
+
+.clone-auction__content
+  .clone-auction__bidValue
+  .clone-auction_bidValue__value {
+  background-color: darkgoldenrod;
+  border: 2px solid rgb(255, 185, 0);
+  width: 100%;
+}
+
+.clone-auction__content
+  .clone-auction__bidValue
+  .clone-auction_bidValue__button {
+  background-color: #0f0;
+  width: 100%;
+}
+
+.clone-auction__content
+  .clone-auction__bidValue
+  .clone-auction_bidValue__button:hover {
+  background-color: rgb(0, 255, 255);
+  color: white;
+}
+
+.clone-auction__content .clone-auction__bidValue .clone-auction_bidValue__value,
+.clone-auction__content
+  .clone-auction__bidValue
+  .clone-auction_bidValue__button {
+  border-radius: 5px;
+  padding: 0.25rem;
+}

@@ -4,6 +4,8 @@ import {
   ContentProductTable, 
 } from './components'
 import { useFetch } from './hooks/useFetch';
+import { CloneAuction } from './components/CloneAuction';
+import './components/ShoppingCar.css'
 
 export const ShoppingCar = () => {
 
@@ -15,21 +17,36 @@ export const ShoppingCar = () => {
   
   return (
     <>
+      <header className='header'>Header</header>
+
       <div className='container-lg pb-48'>
-        <h1 className='bg-red-500 text-slate-50 text-center text-3xl'>Interdimensional Portal de Clones</h1>        
+
+        <section className='feature-section'>
+          <h1 className='bg-red-500 text-slate-50 text-center text-3xl'>Interdimensional Portal de Clones</h1>        
+        </section>
         {
           isLoading ? (<h2>Cargando...</h2>) : (
-            <ContentProductTable 
-              data={ data } 
-              item={ item } 
-              setItem={ setItem }
-            /> 
+            <section className='feature-section'>
+              <ContentProductTable 
+                data={ data } 
+                item={ item } 
+                setItem={ setItem }
+              /> 
+            </section>
           )
         } 
 
-        <BotRick />
+        <section className='feature-section container-clone-auction'>
+          <CloneAuction />
+        </section>
 
       </div>
+
+      <BotRick />
+
+      <footer className='footer'>
+        La Ciudadela de los Ricks no se hace responsable por clones defectuosos, rebeliones, duplicados malvados o paradojas temporales.
+      </footer>
     </>
   )
 }
