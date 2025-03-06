@@ -19,7 +19,7 @@
 .clone-auction__content {
   width: 100%;
   height: auto;
-  border: 3px dashed #0f0;
+  border: 3px dashed greenyellow;
   border-radius: 15px;
   padding: 1rem;
   color: white;
@@ -27,7 +27,7 @@
 }
 
 .clone-auction__content h3 {
-    font-size: 1.3rem;
+  font-size: 1.3rem;
 }
 
 .clone-auction__item {
@@ -36,10 +36,25 @@
 
 .clone-auction__content .clone-auction__img {
   width: 100%;
-  height: auto;
-  background-color: red;
+  height: 30rem;
+  background-color: #ccc;
+  background-image: url('https://usagif.com/wp-content/uploads/starfall-gif.gif');
+  border-radius: 15px;
+  user-select: none;
+  display: grid;
+  place-items: center;
+}
+
+.clone-auction__content .clone-auction__img span {
+  border-radius: 15px;
+  border: 4px solid white;
+
+  width: 15rem;
+  height: 25rem;
+  background-image: url("https://pbs.twimg.com/media/GlJacqzb0AAYeoJ?format=jpg&name=small");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .clone-auction__content .clone-auction__sale {
@@ -93,7 +108,7 @@
 .clone-auction__content
   .clone-auction__bidValue
   .clone-auction_bidValue__button {
-  background-color: #0f0;
+  background-color: greenyellow;
   width: 100%;
 }
 

@@ -6,6 +6,7 @@ import {
 import { useFetch } from './hooks/useFetch';
 import { CloneAuction } from './components/CloneAuction';
 import './components/ShoppingCar.css'
+import { MercenaryRick } from './components/MercenaryRick';
 
 export const ShoppingCar = () => {
 
@@ -22,7 +23,7 @@ export const ShoppingCar = () => {
       <div className='container-lg pb-48'>
 
         <section className='feature-section'>
-          <h1 className='bg-red-500 text-slate-50 text-center text-3xl'>Interdimensional Portal de Clones</h1>        
+          <h1 className='bg-red-500 text-slate-50 text-center text-3xl'>Mercado de Clones #230</h1>        
         </section>
         {
           isLoading ? (<h2>Cargando...</h2>) : (
@@ -36,9 +37,14 @@ export const ShoppingCar = () => {
           )
         } 
 
+        <section className='feature-section'>
+          <MercenaryRick />
+        </section>
+
         <section className='feature-section container-clone-auction'>
           <CloneAuction />
         </section>
+        
 
       </div>
 
