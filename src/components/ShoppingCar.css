@@ -1,14 +1,14 @@
 .feature-section {
   margin-top: 3rem;
   padding: 1rem 1rem;
-  background-color: rgb(0, 116, 44);
-  border-left: 5px solid greenyellow;
+  background-color: var(--color-primary);
+  border-left: 5px solid var(--color-border);
   border-radius: 15px;
 }
 
 .feature-section.container-clone-auction {
   padding: 3rem 1rem;
-  background-color: rgb(0, 116, 44);
+  background-color: var(--color-primary);
 }
 /*  Titulo de cada card */
 .feature-section__container-subtitle {
@@ -19,7 +19,7 @@
   margin-bottom: 1rem;
 }
 .feature-section__container-subtitle h2 {
-  color: white;
+  color: var(--color-white);
   font-weight: bold;
 }
 
