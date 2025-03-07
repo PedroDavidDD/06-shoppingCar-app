@@ -1,21 +1,3 @@
-.clone-auction {
-  width: 100%;
-  height: auto;
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.clone-auction h2 {
-  color: white;
-  font-weight: bold;
-}
-
-.clone-auction span,
-.clone-auction h2 {
-  font-size: 2rem;
-}
-
 .clone-auction__content {
   width: 100%;
   height: auto;
@@ -38,7 +20,7 @@
   width: 100%;
   height: 30rem;
   background-color: #ccc;
-  background-image: url('https://usagif.com/wp-content/uploads/starfall-gif.gif');
+  background-image: url("https://usagif.com/wp-content/uploads/starfall-gif.gif");
   border-radius: 15px;
   user-select: none;
   display: grid;

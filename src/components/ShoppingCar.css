@@ -1,12 +1,29 @@
 .feature-section {
-    margin-top: 3rem;
-    padding: 1rem 1rem;
-    background-color: rgb(0, 116, 44);
-    border-left: 5px solid greenyellow;
-    border-radius: 15px;
+  margin-top: 3rem;
+  padding: 1rem 1rem;
+  background-color: rgb(0, 116, 44);
+  border-left: 5px solid greenyellow;
+  border-radius: 15px;
 }
 
 .feature-section.container-clone-auction {
-    padding: 3rem 1rem;
-    background-color: rgb(0, 116, 44);
+  padding: 3rem 1rem;
+  background-color: rgb(0, 116, 44);
+}
+/*  Titulo de cada card */
+.feature-section__container-subtitle {
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.feature-section__container-subtitle h2 {
+  color: white;
+  font-weight: bold;
+}
+
+.feature-section__container-subtitle span,
+.feature-section__container-subtitle h2 {
+  font-size: 2rem;
 }

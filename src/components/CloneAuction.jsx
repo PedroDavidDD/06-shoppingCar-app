@@ -11,7 +11,7 @@ export const CloneAuction = () => {
 
   return (
     <>
-      <div className='clone-auction'>
+      <div className='feature-section__container-subtitle clone-auction'>
         <span>💰</span>
         <h2>Subasta de Clones</h2>
       </div>

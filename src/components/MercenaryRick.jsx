@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import './MercenaryRick.css';
 
 export const MercenaryRick = () => {
 
   return (
     <>
-        <div className="mercenary-rick">
+        <div className="feature-section__container-subtitle mercenary-rick">
             <span>🔫</span>
             <h2>Rick Mercenario</h2>
         </div>
@@ -20,7 +21,7 @@ export const MercenaryRick = () => {
                         className="action__button"
                     >
                         Contratar por 
-                        <div className="action__price">
+                        <div className="action__button__price">
                             500 
                             <span>Flurbos</span>
                         </div>
