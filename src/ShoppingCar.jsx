@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { 
   BotRick,
-  ContentProductTable, 
+  FormTable,
+  ToyCardSection, 
 } from './components'
 import { useFetch } from './hooks/useFetch';
 import { CloneAuction } from './components/CloneAuction';
@@ -28,11 +29,8 @@ export const ShoppingCar = () => {
         {
           isLoading ? (<h2>Cargando...</h2>) : (
             <section className='feature-section'>
-              <ContentProductTable 
-                data={ data } 
-                item={ item } 
-                setItem={ setItem }
-              /> 
+              <ToyCardSection data={ data } item={ item } setItem={ setItem } />
+              <FormTable item={ item } setItem={ setItem } />
             </section>
           )
         } 
