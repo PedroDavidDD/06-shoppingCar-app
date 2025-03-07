@@ -22,12 +22,11 @@ export const MercenaryRick = () => {
                     >
                         Contratar por 
                         <div className="action__button__price">
-                            500 
+                            <span>500</span>
                             <span>Flurbos</span>
                         </div>
                     </button>
                 </div>
-                <div className="mercenary-rick__action">b</div>
             </div>
         </div>
     </>
