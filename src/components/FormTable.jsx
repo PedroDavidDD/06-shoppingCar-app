@@ -38,7 +38,7 @@ export const FormTable = () => {
             </table>
         </div>
         
-        <button className='btn btn-danger' onClick={ handleDeleteAll }>Delete All</button>
+        {/* <button className='btn btn-danger' onClick={ handleDeleteAll }>Delete All</button> */}
    
     </>
     )
