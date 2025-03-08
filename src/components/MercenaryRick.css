@@ -5,6 +5,7 @@
   border: 3px solid var(--color-secondary);
   border-radius: 10px;
   padding: 1rem;
+  background-color: var(--color-secondary-dark);
 
   h3 {
     color: var(--color-white);
@@ -22,7 +23,7 @@
       width: 100%;
       height: auto;
       /* min-height: 2rem; */
-      background-color: var(--color-secondary-dark);
+      background-color: var(--color-secondary);
       display: flex;
       align-items: start;
       justify-content: space-between;
@@ -54,7 +55,7 @@
         width: 15rem;
         height: auto;
         padding: 1rem;
-        background-color: var(--color-secondary);
+        background-color: var(--color-success);
         font-weight: bold;
         border-radius: 10px;
         display: flex;
