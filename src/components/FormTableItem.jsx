@@ -6,7 +6,7 @@ export const FormTableItem = ({ item, onDeleteTCItem }) => {
       item.map(({ id, image, name, species, gender, quantity })=>(
           <tr key={ id }>
               <th scope="row">{ id }</th>
-              <td>{ image }</td>
+              <td><img src={image} alt="" /></td>
               <td>{ name }</td>
               <td>{ species }</td>
               <td>{ gender }</td>

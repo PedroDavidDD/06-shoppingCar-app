@@ -1,21 +1,45 @@
 import { create } from "zustand";
 
 export const useGlobalStore = create((set, get) => {
-  const fetchClones = async (limit) => {
+  const fetchClones = async () => {
     try {
-      const response = await fetch(`https://api.example.com/clones?limit=${limit}`);
+      const https = 'https://rickandmortyapi.com/api';
+      const typeRam = { 
+        character:'character', 
+        location: 'location', 
+        episode: 'episode' 
+      }
+      const stateFilter = true ? '/?page=35' : ''
+    
+      set({ 
+        isLoadingClone: true
+       });
+
+      const response = await fetch(`${https}/${typeRam.character}${stateFilter}`);
       const data = await response.json();
-      set({ clones: data });
+
+      set({ 
+        clones: data.results,
+        isLoadingClone: false
+       });
     } catch (error) {
-      console.error("Error al obtener preguntas:", error);
+      console.error("Error al obtener los clones:", error);
+      set({ 
+        isLoadingClone: true
+       });
     }
   };
 
-  fetchClones(6)
+  fetchClones()
 
   return {
     clones: [],
-    currentClone: 0,
+    isLoadingClone: true,
+
+    cartClones: [],
+
+    actionMercenaries: [],
+    cloneAuction: [],
 
     fetchClones,
 
