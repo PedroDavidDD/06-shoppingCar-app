@@ -2,8 +2,8 @@
 import { FormTableItem } from './';
 
 export const FormTable = ({ item, setItem }) => {
-    // console.log('[-]',item);
-    // console.log('me repito en FormTable');
+
+
     function handleDeleteTCItem(id) {
         let temp = [...item];
         const repeatObjItem = temp.filter( it => it.id === id);
@@ -32,13 +32,13 @@ export const FormTable = ({ item, setItem }) => {
             <table className="table table-hover">
                 <thead>
                     <tr className='table-dark'>
-                        <th scope="col">#ID</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Image</th>
                         <th scope="col">Name</th>
                         <th scope="col">Species</th>
                         <th scope="col">Gender</th>
-                        <th scope="col">quantity</th>
-                        <th scope="col">[Actions]</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody className='table-warning'>
