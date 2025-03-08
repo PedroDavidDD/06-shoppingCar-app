@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { 
   BotRick,
   FormTable,
@@ -11,10 +11,14 @@ import { useGlobalStore } from './store/store';
 
 export const ShoppingCar = () => {
 
-  const [item, setItem] = useState([]);
+  const fetchClones = useGlobalStore((state) => state.fetchClones);
 
   const clones = useGlobalStore((state) => state.clones);
   const isLoadingClone = useGlobalStore((state) => state.isLoadingClone);
+
+  useEffect(() => {
+      fetchClones();
+  }, [fetchClones]);
 
   return (
     <>
@@ -28,8 +32,8 @@ export const ShoppingCar = () => {
         {
           isLoadingClone ? (<h2>Cargando...</h2>) : (
             <section className='feature-section'>
-              <ToyCardSection data={ clones } item={ item } setItem={ setItem } />
-              <FormTable item={ item } setItem={ setItem } />
+              <ToyCardSection data={ clones } />
+              <FormTable />
             </section>
           )
         }

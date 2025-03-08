@@ -1,28 +1,19 @@
 
+import { useGlobalStore } from '../store/store';
 import { FormTableItem } from './';
 
-export const FormTable = ({ item, setItem }) => {
+export const FormTable = () => {
 
+    const cartClones = useGlobalStore(state => state.cartClones);
+    const deleteCartClone = useGlobalStore(state => state.deleteCartClone);
+    const clearCartClones = useGlobalStore(state => state.clearCartClones);
 
     function handleDeleteTCItem(id) {
-        let temp = [...item];
-        const repeatObjItem = temp.filter( it => it.id === id);
-        // console.log(repeatObjItem);  
-        if (repeatObjItem[0].quantity == 1){
-            const newListItem = temp.filter((element)=> element.id != id );
-            setItem(newListItem);
-        }else{
-            if(repeatObjItem.length != 0){
-                repeatObjItem[0].quantity = repeatObjItem[0].quantity - 1;
-                setItem(temp);
-            }
-        }   
+        deleteCartClone( id );
     }
 
     function handleDeleteAll() {
-        const temp = [...item];
-        if (temp.length === 0) return;
-        setItem([]);
+        clearCartClones();
     }
 
   return (
@@ -42,7 +33,7 @@ export const FormTable = ({ item, setItem }) => {
                     </tr>
                 </thead>
                 <tbody className='table-warning'>
-                    { <FormTableItem item={ item } onDeleteTCItem={ handleDeleteTCItem } /> }
+                    { <FormTableItem item={ cartClones } onDeleteTCItem={ handleDeleteTCItem } /> }
                 </tbody>
             </table>
         </div>
