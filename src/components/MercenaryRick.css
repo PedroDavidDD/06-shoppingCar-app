@@ -23,11 +23,11 @@
 .mercenary-rick__action {
   width: 100%;
   height: auto;
-  /* min-height: 2rem; */
+  overflow: auto;
   background-color: var(--color-secondary);
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
   padding: 1rem;
   border-radius: 10px;
   gap: 2rem;
@@ -79,4 +79,21 @@
 
 .action__button--probability {
   font-style: oblique;
+}
+
+/* Breakpoint prefix */
+/* Breakpoint prefix */
+/* Breakpoint prefix */
+
+/* md */
+@media (width < 48rem) {
+  .mercenary-rick__action {
+    flex-wrap: wrap;
+  }
+}
+/* lg */
+@media (width < 64rem) {
+}
+/* xl */
+@media (width < 80rem) {
 }

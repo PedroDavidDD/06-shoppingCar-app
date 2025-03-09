@@ -1,6 +1,5 @@
 
 export const FormTableItem = ({ item, onDeleteTCItem }) => {
-  console.log(item)
   return (
     <>
       {
