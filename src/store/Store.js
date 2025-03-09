@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { allRanks } from "../utilities/ranks";
 
 export const useGlobalStore = create((set, get) => ({
     clones: [],
@@ -108,7 +109,21 @@ export const useGlobalStore = create((set, get) => ({
   
         const response = await fetch(`${https}/${typeRam.character}${stateFilter}`);
         const data = await response.json();
-  
+
+        data.results = data.results.map((dt) => {
+          const randomRank = allRanks[Math.floor(Math.random() * allRanks.length)];
+          
+          return { 
+            ...dt, 
+            range: {
+              rankName: randomRank.rankName,
+              description: randomRank.description
+            },
+          }
+        })
+
+        console.log(data.results[1].range.rankName)
+
         set({ 
           clones: data.results,
           isLoadingClone: false

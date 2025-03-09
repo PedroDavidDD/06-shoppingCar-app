@@ -10,6 +10,7 @@ export const FormTableItem = ({ item, onDeleteTCItem }) => {
                 <td>{ name }</td>
                 <td>{ species }</td>
                 <td>{ gender }</td>
+                <td>Legenda</td>
                 <td>{ quantity }</td>
                 <td>
                   <svg onClick={()=> { onDeleteTCItem(id) }} xmlns="http://www.w3.org/2000/svg" className=" bg-slate-50/0 icon icon-tabler icon-tabler-square-x" width="32" height="32" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#f00" fill="none" strokeLinecap="round" strokeLinejoin="round">

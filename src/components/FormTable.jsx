@@ -28,6 +28,7 @@ export const FormTable = () => {
                         <th scope="col">Name</th>
                         <th scope="col">Species</th>
                         <th scope="col">Gender</th>
+                        <th scope="col">Range</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Actions</th>
                     </tr>
@@ -38,7 +39,7 @@ export const FormTable = () => {
             </table>
         </div>
         
-        {/* <button className='btn btn-danger' onClick={ handleDeleteAll }>Delete All</button> */}
+        <button className='btn btn-danger' onClick={ handleDeleteAll }>Delete All</button>
    
     </>
     )
