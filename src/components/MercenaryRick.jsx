@@ -74,7 +74,7 @@ export const MercenaryRick = () => {
                         </div>
                     ))
                     : (<div className="mercenary-rick__action">
-                       No Existen Mercenarios
+                       No Existen Mercenarios Disponibles
                        </div>)    
                 }
             </div>
