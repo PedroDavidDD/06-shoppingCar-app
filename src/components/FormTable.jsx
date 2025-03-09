@@ -22,13 +22,14 @@ export const FormTable = () => {
         <div className="table-responsive">
             <table className="table table-hover">
                 <thead>
-                    <tr className='table-dark'>
+                    <tr className='table-dark uppercase'>
                         <th scope="col">ID</th>
                         <th scope="col">Image</th>
                         <th scope="col">Name</th>
                         <th scope="col">Species</th>
                         <th scope="col">Gender</th>
-                        <th scope="col">Range</th>
+                        <th scope="col">Element</th>
+                        <th scope="col">Rarity</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Actions</th>
                     </tr>

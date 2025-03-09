@@ -54,4 +54,46 @@ const specialRanks = [
     { rankName: "Dios Supremo", description: "Máxima entidad en la existencia.", element: "omnipotencia", rarity: "divino", powerLevel: 1000 }
 ];
 
+const rarities = [
+    {   
+        name: "común",
+        probability: 50,        
+        description: "Fácil de encontrar, poca importancia o poder." },
+    {   
+        name: "poco común",
+        probability: 40,        
+        description: "Un poco más raro, generalmente más fuerte o influyente." },
+    {   
+        name: "raro",
+        probability: 20,        
+        description: "Distinguido y con habilidades superiores a los demás." },
+    {   
+        name: "épico",
+        probability: 10,        
+        description: "Poderoso y con gran renombre en la historia." },
+    {   
+        name: "legendario",
+        probability: 5,        
+        description: "Héroe, líder o entidad de importancia histórica única." },
+    {   
+        name: "mítico",
+        probability: 2,        
+        description: "Casi inalcanzable, con poderes más allá de la lógica humana." },
+    {   
+        name: "divino",
+        probability: 1,        
+        description: "Relacionado con dioses o seres supremos, poder absoluto." }
+];
+
+export function getRandomRarity() {
+    let random = Math.floor(Math.random() * 100);
+
+    for (let rarity of rarities) {
+        if (random < rarity.probability) {
+            return rarity.name;
+        }
+        random -= rarity.probability;
+    }
+}
+
 export const allRanks = [...warriorRanks, ...mageRanks, ...nobleRanks, ...specialRanks];
