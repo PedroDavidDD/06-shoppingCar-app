@@ -180,21 +180,37 @@ export const useGlobalStore = create((set, get) => ({
     }));
   },
 
+  deleteRandomCartClone: () => {
+    const { cartClones } = get()
+    let randomid = cartClones[Math.floor(Math.random() * cartClones.length )].id;
+    
+    set(state => ({
+      cartClones: state.cartClones.reduce((acc, item) => {
+        if ( item.id === randomid ){
+          if ( item.quantity > 1 ){
+            acc.push({...item, quantity: item.quantity -1 });
+          }
+        } else {
+          acc.push(item);
+        }
+        return acc;
+      }, [])
+    }));
+  },
+
   deleteCartClone: (id) => {
-    const { cartClones } = get();
-
-    let temp = [...cartClones];
-    const repeatObjItem = temp.filter(it => it.id === id);
-
-    if (repeatObjItem[0].quantity == 1) {
-      const newListItem = temp.filter((element) => element.id != id);
-      set({ cartClones: newListItem }); // desaparece ese 1
-    } else {
-      if (repeatObjItem.length != 0) {
-        repeatObjItem[0].quantity = repeatObjItem[0].quantity - 1;
-        set({ cartClones: temp });
-      }
-    }
+    set(state => ({
+      cartClones: state.cartClones.reduce((acc, item) => {
+        if ( item.id === id ){
+          if ( item.quantity > 1 ){
+            acc.push({...item, quantity: item.quantity -1 });
+          }
+        } else {
+          acc.push(item);
+        }
+        return acc;
+      }, [])
+    }));
   },
 
   clearCartClones: () => set({ cartClones: [] }),
