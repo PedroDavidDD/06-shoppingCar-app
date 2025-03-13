@@ -1,5 +1,5 @@
 
-import { useGlobalStore } from '../store/store';
+import { useGlobalStore } from '../store/Store'; 
 import { FormTableItem } from './';
 
 export const FormTable = () => {
@@ -28,6 +28,7 @@ export const FormTable = () => {
                         <th scope="col">Name</th>
                         <th scope="col">Species</th>
                         <th scope="col">Gender</th>
+                        <th scope="col">Location</th>
                         <th scope="col">Element</th>
                         <th scope="col">Rarity</th>
                         <th scope="col">Quantity</th>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { 
   BotRick,
   FormTable,
@@ -7,7 +7,7 @@ import {
 import { CloneAuction } from './components/CloneAuction';
 import './components/ShoppingCar.css'
 import { MercenaryRick } from './components/MercenaryRick';
-import { useGlobalStore } from './store/store';
+import { useGlobalStore } from './store/Store';
 
 export const ShoppingCar = () => {
 

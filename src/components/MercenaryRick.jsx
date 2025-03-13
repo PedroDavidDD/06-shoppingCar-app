@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './MercenaryRick.css';
-import { useGlobalStore } from '../store/store';
+import { useGlobalStore } from '../store/Store';
 
 export const MercenaryRick = () => {
 

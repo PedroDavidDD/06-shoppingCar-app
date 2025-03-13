@@ -1,4 +1,5 @@
-import { useGlobalStore } from '../store/store';
+
+import { useGlobalStore } from '../store/Store';
 import { ToyCardItem } from './'
 
 export const ToyCardSection = ({ data }) => {

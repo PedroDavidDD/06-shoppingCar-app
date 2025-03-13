@@ -93,29 +93,43 @@ export const useGlobalStore = create((set, get) => ({
 
   cloneAuction: [],
 
-  fetchClones: async () => {
+  fetchClones: async (
+    apiBaseUrl = "https://rickandmortyapi.com/api",
+    entityType = "character",
+    queryParams = "/?page=2"
+  ) => {
     try {
-      const https = 'https://rickandmortyapi.com/api';
-      const typeRam = {
-        character: 'character',
-        location: 'location',
-        episode: 'episode'
+      const endpoints = {
+        character: '/character',
+        location: '/location',
+        episode: '/episode'
       }
-      const stateFilter = true ? '/?page=1' : ''
 
       set({
         isLoadingClone: true
       });
 
-      const response = await fetch(`${https}/${typeRam.character}${stateFilter}`);
+      const response = await fetch(`${apiBaseUrl}${endpoints[entityType]}${queryParams}`);
       const data = await response.json();
 
-      const db = data.results.map((dt) => {
+      const clonePromises = data.results.map(async (character) => {
         const randomRank = allRanks[Math.floor(Math.random() * allRanks.length)];
         const randomRarity = getRandomRarity();
 
+        let dimension = 'Desconocido'
+
+        if (character.origin.url) {
+          try {
+            const locationResponse = await fetch(character.origin.url);
+            const locationData = await locationResponse.json();
+            dimension = locationData.dimension || 'Desconocido';
+          } catch (error) {
+            console.log(`Error al obtener la dimension para el personaje ${character.name} - Error ${error}`)
+          }
+        }
         return {
-          ...dt,
+          ...character,
+          dimension,
           range: {
             description: randomRank.description,
             element: randomRank.element,
@@ -127,10 +141,13 @@ export const useGlobalStore = create((set, get) => ({
         }
       })
 
+      const clones = await Promise.all(clonePromises)
+
       set({
-        clones: db,
+        clones,
         isLoadingClone: false
       });
+      
     } catch (error) {
       console.error("Error al obtener los clones:", error);
       set({
@@ -138,6 +155,7 @@ export const useGlobalStore = create((set, get) => ({
       });
     }
   },
+
   // CLONES
   addClone: (clone) => {
     set((state) => ({
@@ -182,13 +200,13 @@ export const useGlobalStore = create((set, get) => ({
 
   deleteRandomCartClone: () => {
     const { cartClones } = get()
-    let randomid = cartClones[Math.floor(Math.random() * cartClones.length )].id;
-    
+    let randomid = cartClones[Math.floor(Math.random() * cartClones.length)].id;
+
     set(state => ({
       cartClones: state.cartClones.reduce((acc, item) => {
-        if ( item.id === randomid ){
-          if ( item.quantity > 1 ){
-            acc.push({...item, quantity: item.quantity -1 });
+        if (item.id === randomid) {
+          if (item.quantity > 1) {
+            acc.push({ ...item, quantity: item.quantity - 1 });
           }
         } else {
           acc.push(item);
@@ -201,9 +219,9 @@ export const useGlobalStore = create((set, get) => ({
   deleteCartClone: (id) => {
     set(state => ({
       cartClones: state.cartClones.reduce((acc, item) => {
-        if ( item.id === id ){
-          if ( item.quantity > 1 ){
-            acc.push({...item, quantity: item.quantity -1 });
+        if (item.id === id) {
+          if (item.quantity > 1) {
+            acc.push({ ...item, quantity: item.quantity - 1 });
           }
         } else {
           acc.push(item);
