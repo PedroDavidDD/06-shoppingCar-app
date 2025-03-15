@@ -5,13 +5,15 @@ import { useGlobalStore } from '../store/Store';
 export const MercenaryRick = () => {
 
     const flurbosCoints = useGlobalStore(state => state.flurbosCoints);
+    const addFlurbos = useGlobalStore(state => state.addFlurbos);
     
     const cartClones = useGlobalStore(state => state.cartClones);
+    const updateCartClone = useGlobalStore(state => state.updateCartClone);
+
     const deleteCartClone = useGlobalStore(state => state.deleteCartClone);
     const deleteRandomCartClone = useGlobalStore(state => state.deleteRandomCartClone);
     const deleteGenocidalCartClone = useGlobalStore(state => state.deleteGenocidalCartClone);
     const clearCartClones = useGlobalStore(state => state.clearCartClones);
-    const addFlurbos = useGlobalStore(state => state.addFlurbos);
 
     const actionMercenaries = useGlobalStore(state => state.actionMercenaries);
 
@@ -22,24 +24,36 @@ export const MercenaryRick = () => {
             deleteRandomCartClone();
         },
         byId: () => {
-            if ( !idCartClone ) return;
             deleteCartClone( idCartClone );
         },
         byLocation: () => {
-            const tempLocation = cartClones.find(obj => obj.id == idCartClone);
-            deleteGenocidalCartClone( tempLocation.location.name );
+            const tempObj = cartClones.find(obj => obj.id == idCartClone);
+            deleteGenocidalCartClone( tempObj.location.name );
         },
         byAll: () => clearCartClones(),
         byFlurbos: () => {
-            if ( !idCartClone ) return;
             deleteCartClone( idCartClone );
 
-            const tempLocation = cartClones.find(obj => obj.id == idCartClone);
-            addFlurbos( tempLocation.price );            
+            const tempObj = cartClones.find(obj => obj.id == idCartClone);
+            addFlurbos( tempObj.price );            
         },
         byDisabled: () => {
+            const tempObj = cartClones.find(obj => obj.id == idCartClone);
+            updateCartClone( 
+                idCartClone, 
+                { 
+                    isHidden: true
+                }
+            );            
         },
         byEnabled: () => {
+            const tempObj = cartClones.find(obj => obj.id == idCartClone);
+            updateCartClone( 
+                idCartClone, 
+                { 
+                    isHidden: false
+                }
+            ); 
         },
         byRandomUpdate: () => {
         },
@@ -50,6 +64,7 @@ export const MercenaryRick = () => {
     const handlerDeleteBy =( data )=> {
         const repeatObjItem = cartClones.filter( it => it.id === idCartClone);
         if (repeatObjItem.length == 0) return;
+
         if (typesDelete[data.type]){
             typesDelete[data.type]();
         }

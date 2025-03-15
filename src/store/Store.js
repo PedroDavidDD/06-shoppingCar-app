@@ -143,6 +143,7 @@ export const useGlobalStore = create((set, get) => ({
           },
           rarity: randomRarity,
           price: priceForRarity,
+          isHidden: false,
         }
       })
 
@@ -192,7 +193,7 @@ export const useGlobalStore = create((set, get) => ({
   updateClone: (id, updatedData) => {
     set((state) => ({
       clones: state.clones.map((q) =>
-        q.id === id ? { ...q, ...updatedData } : q
+        q.id === id ? { ...q, ...updatedData  } : q
       ),
     }));
   },

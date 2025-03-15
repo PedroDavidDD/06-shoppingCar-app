@@ -1,12 +1,12 @@
-import { useGlobalStore } from "../store/Store";
+import './FromTableItem.css'
 
 export const FormTableItem = ({ item, onDeleteTCItem }) => {
-
+  
   return (
     <>
       {
         item.map((dt)=>(
-            <tr key={ dt.id } className="capitalize">
+            <tr key={ dt.id } className={`capitalize ${dt.isHidden ? 'container__prison':''}`}>
                 <th scope="row">{ dt.id }</th>
                 <td><img src={dt.image} alt={dt.name} className="w-32 h-32" /></td>
                 <td>{ dt.name }</td>
@@ -22,6 +22,16 @@ export const FormTableItem = ({ item, onDeleteTCItem }) => {
                     <rect x="4" y="4" width="16" height="16" rx="2" />
                     <path d="M10 10l4 4m0 -4l-4 4" />
                   </svg>
+                </td>
+                <td className={`${dt.isHidden ? '':'hidden'}`}>
+                  <div className="prison">
+                    <span className="circle">
+                    </span>
+                    <span className="circle__base">
+                      <span className="circle__base circle__base-2"></span>
+                    </span>
+                    <span className="circle__stick"></span>
+                  </div>
                 </td>
             </tr>
         ))
