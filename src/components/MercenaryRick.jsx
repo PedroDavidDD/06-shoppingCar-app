@@ -6,19 +6,49 @@ export const MercenaryRick = () => {
 
     const cartClones = useGlobalStore(state => state.cartClones);
     const deleteCartClone = useGlobalStore(state => state.deleteCartClone);
+    const deleteRandomCartClone = useGlobalStore(state => state.deleteRandomCartClone);
+    const deleteGenocidalCartClone = useGlobalStore(state => state.deleteGenocidalCartClone);
     const clearCartClones = useGlobalStore(state => state.clearCartClones);
 
     const actionMercenaries = useGlobalStore(state => state.actionMercenaries);
 
-    const [idCartClone, setIdClone] = useState(0)
+    const [idCartClone, setIdClone] = useState(0);
 
-    const handlerDeleteById =()=>{
+    const typesDelete = {
+        byRandomId: () => {
+            deleteRandomCartClone();
+        },
+        byId: () => {
+            if ( !idCartClone ) return;
+            deleteCartClone( idCartClone );
+        },
+        byLocation: () => {
+            const tempLocation = cartClones.find(obj => obj.id == idCartClone);
+            deleteGenocidalCartClone( tempLocation.location.name );
+        },
+        byAll: () => clearCartClones(),
+        byFlurbos: () => {
+            
+        },
+        byDisabled: () => {
+        },
+        byEnabled: () => {
+        },
+        byRandomUpdate: () => {
+        },
+        byBetterUpdate: () => {
+        }
+    };
+
+    const handlerDeleteBy =( data )=> {
         const repeatObjItem = cartClones.filter( it => it.id === idCartClone);
         if (repeatObjItem.length == 0) return;
-        deleteCartClone(idCartClone);
+        if (typesDelete[data.type]){
+            typesDelete[data.type]();
+        }
     }
 
-    const handlerOnChange =(event)=>{
+    const handlerOnChange =(event)=> {
         setIdClone( Number( event.target.value ) )
     }
 
@@ -38,7 +68,7 @@ export const MercenaryRick = () => {
                             <div className="action__target">{data.target}</div>
                             <div className="action__context">{data.context}</div>
                             <div className="action__squad">{data.squad}</div>
-                        </div> 
+                        </div>
                         { (cartClones.length == 0) ? null
                                 : (
                                     <select
@@ -51,7 +81,7 @@ export const MercenaryRick = () => {
                                             <option 
                                                 key={item.id} 
                                                 value={item.id}
-                                            >{item.name}</option>
+                                            >{item.name} - {item.location.name}</option>
                                             ))
                                         }
                                     </select>
@@ -60,7 +90,7 @@ export const MercenaryRick = () => {
                         
                         <button
                             className="action__button" 
-                            onClick={ handlerDeleteById }
+                            onClick={ ()=> handlerDeleteBy(data) }
                         >
                             <span className="action__button__item">Contratar por </span>
                             <div className="action__button__item action__button--price">
