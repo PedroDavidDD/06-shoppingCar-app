@@ -4,11 +4,14 @@ import { useGlobalStore } from '../store/Store';
 
 export const MercenaryRick = () => {
 
+    const flurbosCoints = useGlobalStore(state => state.flurbosCoints);
+    
     const cartClones = useGlobalStore(state => state.cartClones);
     const deleteCartClone = useGlobalStore(state => state.deleteCartClone);
     const deleteRandomCartClone = useGlobalStore(state => state.deleteRandomCartClone);
     const deleteGenocidalCartClone = useGlobalStore(state => state.deleteGenocidalCartClone);
     const clearCartClones = useGlobalStore(state => state.clearCartClones);
+    const addFlurbos = useGlobalStore(state => state.addFlurbos);
 
     const actionMercenaries = useGlobalStore(state => state.actionMercenaries);
 
@@ -28,7 +31,11 @@ export const MercenaryRick = () => {
         },
         byAll: () => clearCartClones(),
         byFlurbos: () => {
-            
+            if ( !idCartClone ) return;
+            deleteCartClone( idCartClone );
+
+            const tempLocation = cartClones.find(obj => obj.id == idCartClone);
+            addFlurbos( tempLocation.price );            
         },
         byDisabled: () => {
         },
@@ -57,6 +64,7 @@ export const MercenaryRick = () => {
         <div className="feature-section__container-subtitle mercenary-rick">
             <span>🔫</span>
             <h2>Rick Mercenario</h2>
+            <h2>{ flurbosCoints }</h2>
         </div>
         <div className="mercenary-rick__container">
             <h3>¿Problemas con tus clones? ¿Necesitas deshacerte de ellos discretamente? ¡Rick Mercenario está aquí para ti!</h3>

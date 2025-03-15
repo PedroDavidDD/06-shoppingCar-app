@@ -57,31 +57,38 @@ const specialRanks = [
 const rarities = [
     {   
         name: "común",
-        probability: 50,        
+        probability: 10,        
+        price: 100,
         description: "Fácil de encontrar, poca importancia o poder." },
     {   
         name: "poco común",
-        probability: 40,        
+        probability: 15,        
+        price: 200,
         description: "Un poco más raro, generalmente más fuerte o influyente." },
     {   
         name: "raro",
         probability: 20,        
+        price: 500,
         description: "Distinguido y con habilidades superiores a los demás." },
     {   
         name: "épico",
-        probability: 10,        
+        probability: 25,        
+        price: 700,
         description: "Poderoso y con gran renombre en la historia." },
     {   
         name: "legendario",
-        probability: 5,        
+        probability: 30,        
+        price: 2000,
         description: "Héroe, líder o entidad de importancia histórica única." },
     {   
         name: "mítico",
-        probability: 2,        
+        probability: 35,        
+        price: 3000,
         description: "Casi inalcanzable, con poderes más allá de la lógica humana." },
     {   
         name: "divino",
-        probability: 1,        
+        probability: 40,        
+        price: 5000,
         description: "Relacionado con dioses o seres supremos, poder absoluto." }
 ];
 
@@ -94,6 +101,14 @@ export function getRandomRarity() {
         }
         random -= rarity.probability;
     }
+}
+
+export function getPriceRarity( randomRarity ) {
+    for (let rarity of rarities) {
+        if (randomRarity === rarity.name) {
+            return rarity.price;
+        }
+    } 
 }
 
 export const allRanks = [...warriorRanks, ...mageRanks, ...nobleRanks, ...specialRanks];

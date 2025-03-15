@@ -1,7 +1,9 @@
 import { create } from "zustand";
-import { allRanks, getRandomRarity } from "../utilities/ranks";
+import { allRanks, getPriceRarity, getRandomRarity } from "../utilities/ranks";
 
 export const useGlobalStore = create((set, get) => ({
+  flurbosCoints: 1000,
+
   clones: [],
   isLoadingClone: true,
 
@@ -114,9 +116,10 @@ export const useGlobalStore = create((set, get) => ({
 
       const clonePromises = data.results.map(async (character) => {
         const randomRank = allRanks[Math.floor(Math.random() * allRanks.length)];
-        const randomRarity = getRandomRarity();
+        const randomRarity = getRandomRarity() || 'común';
+        const priceForRarity = getPriceRarity(randomRarity) || 100;
 
-        let dimension = 'Desconocido'
+        let dimension = 'Desconocido';
 
         if (character.origin.url) {
           try {
@@ -127,6 +130,7 @@ export const useGlobalStore = create((set, get) => ({
             console.log(`Error al obtener la dimension para el personaje ${character.name} - Error ${error}`)
           }
         }
+        
         return {
           ...character,
           dimension,
@@ -137,12 +141,13 @@ export const useGlobalStore = create((set, get) => ({
             rankName: randomRank.rankName,
             rarity: randomRank.rarity,
           },
-          rarity: randomRarity
+          rarity: randomRarity,
+          price: priceForRarity,
         }
       })
 
       const clones = await Promise.all(clonePromises)
-
+      
       set({
         clones,
         isLoadingClone: false
@@ -242,7 +247,13 @@ export const useGlobalStore = create((set, get) => ({
     }));
   },
 
-  clearCartClones: () => set({ cartClones: [] }),
+  clearCartClones :()=> set({ cartClones: [] }),
+
+  addFlurbos :(addCoints = 100)=> {
+    const { flurbosCoints } = get();
+    set({ flurbosCoints: flurbosCoints + addCoints })
+  },
+
 
   // actionMercenaries
 
