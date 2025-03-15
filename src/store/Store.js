@@ -161,6 +161,27 @@ export const useGlobalStore = create((set, get) => ({
     }
   },
 
+  // FLURBOS COINTS
+  addFlurbosCoints :(addCoints = 100)=> {
+    const { flurbosCoints } = get();
+    let prevCoints = flurbosCoints + addCoints;
+    if ( prevCoints > 10000 ) {
+      set({ flurbosCoints: 10000 }); 
+      return;
+    }
+    set({ flurbosCoints: prevCoints })
+  },
+
+  removeFlurbosCoints :(addCoints = 100)=> {
+    const { flurbosCoints } = get();
+    let prevCoints = flurbosCoints - addCoints;
+    if ( prevCoints < 0 ) {
+      set({ flurbosCoints: 0 }); 
+      return;
+    }
+    set({ flurbosCoints: prevCoints })
+  },
+
   // CLONES
   addClone: (clone) => {
     set((state) => ({
@@ -248,11 +269,7 @@ export const useGlobalStore = create((set, get) => ({
   },
 
   clearCartClones :()=> set({ cartClones: [] }),
-
-  addFlurbos :(addCoints = 100)=> {
-    const { flurbosCoints } = get();
-    set({ flurbosCoints: flurbosCoints + addCoints })
-  },
+  
 
 
   // actionMercenaries
