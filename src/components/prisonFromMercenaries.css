@@ -1,0 +1,22 @@
+.prison-from-mercenaries {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100px), 1fr)); */
+}
+
+.pfm__column {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(min(200px), 1fr));
+  justify-items: center;
+  gap: 1rem;
+}
+
+.pfm__column span {
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-style: oblique;
+  font-weight: bold;
+  padding: .5rem;
+}

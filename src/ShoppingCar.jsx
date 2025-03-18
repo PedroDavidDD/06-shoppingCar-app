@@ -8,6 +8,7 @@ import { CloneAuction } from './components/CloneAuction';
 import './components/ShoppingCar.css'
 import { MercenaryRick } from './components/MercenaryRick';
 import { useGlobalStore } from './store/Store';
+import { PrisonFromMercenaries } from './components/PrisonFromMercenaries';
 
 export const ShoppingCar = () => {
 
@@ -33,11 +34,18 @@ export const ShoppingCar = () => {
           isLoadingClone ? (<h2>Cargando...</h2>) : (
             <section className='feature-section'>
               <ToyCardSection data={ clones } />
-              <FormTable />
             </section>
           )
         }
 
+        <section className='feature-section'>
+          <FormTable />
+        </section>
+
+        <section className='feature-section'>
+          <PrisonFromMercenaries />
+        </section>
+        
         <section className='feature-section'>
           <MercenaryRick />
         </section>
