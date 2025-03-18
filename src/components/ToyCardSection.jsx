@@ -1,6 +1,7 @@
 
 import { useGlobalStore } from '../store/Store';
 import { ToyCardItem } from './'
+import './toyCardSection.css'
 
 export const ToyCardSection = ({ data }) => {
   
