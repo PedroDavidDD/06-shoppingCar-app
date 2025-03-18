@@ -270,8 +270,6 @@ export const useGlobalStore = create((set, get) => ({
   },
 
   clearCartClones :()=> set({ cartClones: [] }),
-  
-
 
   // actionMercenaries
 

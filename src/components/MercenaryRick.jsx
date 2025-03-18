@@ -5,7 +5,7 @@ import { useGlobalStore } from '../store/Store';
 export const MercenaryRick = () => {
 
     const flurbosCoints = useGlobalStore(state => state.flurbosCoints);
-    const addFlurbos = useGlobalStore(state => state.addFlurbos);
+    const addFlurbosCoints = useGlobalStore(state => state.addFlurbosCoints);
     
     const cartClones = useGlobalStore(state => state.cartClones);
     const updateCartClone = useGlobalStore(state => state.updateCartClone);
@@ -35,7 +35,7 @@ export const MercenaryRick = () => {
             deleteCartClone( idCartClone );
 
             const tempObj = cartClones.find(obj => obj.id == idCartClone);
-            addFlurbos( tempObj.price );            
+            addFlurbosCoints( tempObj.price );            
         },
         byDisabled: () => {
             const tempObj = cartClones.find(obj => obj.id == idCartClone);
