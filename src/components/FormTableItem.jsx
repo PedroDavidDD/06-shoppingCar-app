@@ -23,7 +23,7 @@ export const FormTableItem = ({ item, onDeleteTCItem }) => {
                     <path d="M10 10l4 4m0 -4l-4 4" />
                   </svg>
                 </td>
-                <td className={`${dt.isHidden ? '':'hidden'}`}>
+                <td className={`td-prison ${dt.isHidden ? '':'hidden'}`}>
                   <div className="prison">
                     <span className="circle">
                     </span>
