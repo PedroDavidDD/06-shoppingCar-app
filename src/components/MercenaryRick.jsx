@@ -30,7 +30,7 @@ export const MercenaryRick = () => {
             const tempObj = cartClones.find(obj => obj.id == idCartClone);
             deleteGenocidalCartClone( tempObj.location.name );
         },
-        byAll: () => clearCartClones(),
+        byAll: () => { clearCartClones() },
         byFlurbos: () => {
             deleteCartClone( idCartClone );
 
@@ -62,6 +62,11 @@ export const MercenaryRick = () => {
     };
 
     const handlerDeleteBy =( data )=> {
+        if (data.type.includes("byAll")){
+            typesDelete[data.type]();
+            return;
+        }
+
         const repeatObjItem = cartClones.filter( it => it.id === idCartClone);
         if (repeatObjItem.length == 0) return;
 
