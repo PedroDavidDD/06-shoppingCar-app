@@ -2,6 +2,14 @@
   position: relative;
 }
 
+.container__prison .td-prison > span{
+  position: absolute;
+  color: var(--color-white);
+  padding-left: 1rem;
+  padding-top: 1rem;
+  font-size: 1.5rem;
+}
+
 .container__prison .td-prison,
 .prison {
   position: absolute;
@@ -9,6 +17,7 @@
   top: 0;
   width: 100%;
   height: 100%;
+  user-select: none;
 }
 
 .prison {

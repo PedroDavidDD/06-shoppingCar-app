@@ -27,11 +27,12 @@ export const FormTableItem = ({ item, onDeleteTCItem }) => {
                   <div className="prison">
                     <span className="circle">
                     </span>
-                    <span className="circle__base">
+                    <span className="circle__base"> 
                       <span className="circle__base circle__base-2"></span>
                     </span>
                     <span className="circle__stick"></span>
                   </div>
+                  <span>{dt.id} - {dt.name}</span>
                 </td>
             </tr>
         ))
