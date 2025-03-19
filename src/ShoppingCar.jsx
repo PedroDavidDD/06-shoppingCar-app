@@ -1,67 +1,56 @@
-import React, { useEffect } from 'react'
-import { 
-  BotRick,
-  FormTable,
-  ToyCardSection, 
-} from './components'
-import { CloneAuction } from './components/CloneAuction';
-import './components/ShoppingCar.css'
-import { MercenaryRick } from './components/MercenaryRick';
-import { useGlobalStore } from './store/Store';
-import { PrisonFromMercenaries } from './components/PrisonFromMercenaries';
+import React, { useEffect } from "react";
+import { BotRick, FormTable, ToyCardSection } from "./components";
+import { CloneAuction } from "./components/CloneAuction";
+import "./components/ShoppingCar.css";
+import { MercenaryRick } from "./components/MercenaryRick";
+import { useGlobalStore } from "./store/Store";
+import { PrisonFromMercenaries } from "./components/PrisonFromMercenaries";
+import LoaderWrapper from "./components/LoaderWrapper";
+import Layout from "./layout/Layout";
 
 export const ShoppingCar = () => {
-
   const fetchClones = useGlobalStore((state) => state.fetchClones);
-
   const clones = useGlobalStore((state) => state.clones);
   const isLoadingClone = useGlobalStore((state) => state.isLoadingClone);
+  const cartClones = useGlobalStore((state) => state.cartClones);
 
   useEffect(() => {
-      fetchClones();
+    fetchClones();
   }, [fetchClones]);
 
   return (
-    <>
-      <header className='header'>Header</header>
+    <Layout>
+      <section className="feature-section">
+        <h1 className="bg-red-500 text-slate-50 text-center text-3xl">
+          Mercado de Clones #230
+        </h1>
+      </section>
 
-      <div className='container-lg pb-48'>
-
-        <section className='feature-section'>
-          <h1 className='bg-red-500 text-slate-50 text-center text-3xl'>Mercado de Clones #230</h1>        
+      <LoaderWrapper isLoading={isLoadingClone}>
+        <section className="feature-section">
+          <ToyCardSection data={clones} />
         </section>
-        {
-          isLoadingClone ? (<h2>Cargando...</h2>) : (
-            <section className='feature-section'>
-              <ToyCardSection data={ clones } />
-            </section>
-          )
-        }
+      </LoaderWrapper>
 
-        <section className='feature-section'>
-          <FormTable />
-        </section>
+      <section className="feature-section">
+        <FormTable />
+      </section>
 
-        <section className='feature-section'>
+      {cartClones.some((obj) => obj.isHidden) && (
+        <section className="feature-section">
           <PrisonFromMercenaries />
         </section>
-        
-        <section className='feature-section'>
-          <MercenaryRick />
-        </section>
+      )}
 
-        <section className='feature-section container-clone-auction'>
-          <CloneAuction />
-        </section>
-        
+      <section className="feature-section">
+        <MercenaryRick />
+      </section>
 
-      </div>
+      <section className="feature-section container-clone-auction">
+        <CloneAuction />
+      </section>
 
       <BotRick />
-
-      <footer className='footer'>
-        La Ciudadela de los Ricks no se hace responsable por clones defectuosos, rebeliones, duplicados malvados o paradojas temporales.
-      </footer>
-    </>
-  )
-}
+    </Layout>
+  );
+};
