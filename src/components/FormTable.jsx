@@ -18,8 +18,8 @@ export const FormTable = () => {
 
   return (
     <>
-        <h1 className='bg-red-500 text-slate-50 text-center text-3xl'>Tabla De Compras</h1>
-        <div className="table-responsive">
+        <h1 className='bg-red-500 text-slate-50 text-center text-3xl'>Colección Oficial de Clones Ricknianos</h1>
+        <div className="table-responsive max-h-[40rem]">
             <table className="table table-hover">
                 <thead>
                     <tr className='table-dark uppercase'>
@@ -41,7 +41,7 @@ export const FormTable = () => {
             </table>
         </div>
         
-        <button className='btn btn-danger' onClick={ handleDeleteAll }>Delete All</button>
+        <button className='btn btn-danger mt-4' onClick={ handleDeleteAll }>Delete All</button>
    
     </>
     )
