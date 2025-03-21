@@ -86,7 +86,7 @@ export const MercenaryRick = () => {
             <h2>Rick Mercenario</h2>
             <h2>{ flurbosCoints }</h2>
         </div>
-        <div className="mercenary-rick__container">
+        <div className="mercenary-rick__container overflow-auto max-h-[37rem]">
             <h3>¿Problemas con tus clones? ¿Necesitas deshacerte de ellos discretamente? ¡Rick Mercenario está aquí para ti!</h3>
             <div className="mercenary-rick__actions">
                 { actionMercenaries.length > 0 
