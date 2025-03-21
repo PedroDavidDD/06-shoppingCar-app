@@ -227,11 +227,15 @@ export const useGlobalStore = create((set, get) => ({
 
   deleteRandomCartClone: () => {
     const { cartClones } = get()
-    let randomid = cartClones[Math.floor(Math.random() * cartClones.length)].id;
+    
+    if (!cartClones.length) return;
+
+    const randomIndex = Math.floor(Math.random() * cartClones.length);
+    const randomId = cartClones[randomIndex]?.id;
 
     set(state => ({
       cartClones: state.cartClones.reduce((acc, item) => {
-        if (item.id === randomid) {
+        if (item.id === randomId) {
           if (item.quantity > 1) {
             acc.push({ ...item, quantity: item.quantity - 1 });
           }

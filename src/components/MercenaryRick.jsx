@@ -17,66 +17,76 @@ export const MercenaryRick = () => {
 
     const actionMercenaries = useGlobalStore(state => state.actionMercenaries);
 
-    const [idCartClone, setIdClone] = useState(0);
+    const [selectedCloneId, setSelectedCloneId] = useState(0);
 
-    const typesDelete = {
+    const deleteActions = {
         byRandomId: () => {
             deleteRandomCartClone();
         },
         byId: () => {
-            deleteCartClone( idCartClone );
+            deleteCartClone( selectedCloneId );
         },
         byLocation: () => {
-            const tempObj = cartClones.find(obj => obj.id == idCartClone);
+            const tempObj = cartClones.find(obj => obj.id == selectedCloneId);
             deleteGenocidalCartClone( tempObj.location.name );
         },
         byAll: () => { clearCartClones() },
         byFlurbos: () => {
-            deleteCartClone( idCartClone );
+            deleteCartClone( selectedCloneId );
 
-            const tempObj = cartClones.find(obj => obj.id == idCartClone);
+            const tempObj = cartClones.find(obj => obj.id == selectedCloneId);
             addFlurbosCoints( tempObj.price );            
         },
         byDisabled: () => {
-            const tempObj = cartClones.find(obj => obj.id == idCartClone);
+            const tempObj = cartClones.find(obj => obj.id == selectedCloneId);
             updateCartClone( 
-                idCartClone, 
+                selectedCloneId, 
                 { 
                     isHidden: true
                 }
             );            
         },
         byEnabled: () => {
-            const tempObj = cartClones.find(obj => obj.id == idCartClone);
+            const tempObj = cartClones.find(obj => obj.id == selectedCloneId);
             updateCartClone( 
-                idCartClone, 
+                selectedCloneId, 
                 { 
                     isHidden: false
                 }
             ); 
         },
         byRandomUpdate: () => {
+            console.log('first')
         },
         byBetterUpdate: () => {
+            console.log('first 2')
         }
     };
 
-    const handlerDeleteBy =( data )=> {
-        if (data.type.includes("byAll")){
-            typesDelete[data.type]();
+    const handleDeleteAction =( type )=> {
+        if (!cartClones.length) {
+            console.info(`Primero compra un clon`);
             return;
         }
 
-        const repeatObjItem = cartClones.filter( it => it.id === idCartClone);
-        if (repeatObjItem.length == 0) return;
+        const actionsWithoutClone = new Set(["byAll", "byRandomId"]);
+        
+        const isSelectionRequired  = !actionsWithoutClone.has( type );
+        
+        const selectedClone = isSelectionRequired 
+            ? cartClones.find(({ id }) => id === selectedCloneId) 
+            : true;
 
-        if (typesDelete[data.type]){
-            typesDelete[data.type]();
+        if (!selectedClone) {
+            console.warn(`No se encontró el clon seleccionado`);
+            return;
         }
+
+        deleteActions[type]?.();
     }
 
     const handlerOnChange =(event)=> {
-        setIdClone( Number( event.target.value ) )
+        setSelectedCloneId( parseInt( event.target.value ) )
     }
 
   return (
@@ -118,7 +128,7 @@ export const MercenaryRick = () => {
                         
                         <button
                             className="action__button" 
-                            onClick={ ()=> handlerDeleteBy(data) }
+                            onClick={ ()=> handleDeleteAction(data.type) }
                         >
                             <span className="action__button__item">Contratar por </span>
                             <div className="action__button__item action__button--price">
